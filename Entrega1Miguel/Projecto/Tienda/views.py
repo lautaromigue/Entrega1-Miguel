@@ -1,3 +1,4 @@
+from http.client import HTTPResponse
 from multiprocessing import context
 from django.shortcuts import render, redirect
 from Tienda.models import Games, Consoles, Phones
@@ -71,3 +72,10 @@ def list_phones(request):
     }
     return render(request, 'phones/list_phones.html', context = context)
 
+
+def search_products(request):
+    search = request.GET['search']
+    games = Games.objects.filter(name__icontains=search)
+    context = {'games':games}
+    return render(request, 'games/search_games.html', context=context)
+    

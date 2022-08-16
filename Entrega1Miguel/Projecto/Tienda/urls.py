@@ -1,5 +1,6 @@
+from re import search
 from django.urls import path
-from Tienda.views import create_game, formulario_games, list_games, create_console, list_consoles, create_phone, list_phones
+from Tienda.views import create_game, formulario_games, list_games, create_console, list_consoles, create_phone, list_phones, search_products
 
 
 urlpatterns = [
@@ -9,5 +10,6 @@ urlpatterns = [
     path('list-consoles/', list_consoles, name='list_consoles'),  
     path('create-phone/', create_phone, name= 'create_phone'),
     path('list-phones/', list_phones, name='list_phones'),
-    path('formulario_games/', formulario_games, name = 'formulario'),      
+    path('formulario_games/', formulario_games, name = 'formulario'), 
+    path('search_products/', search_products, name='search')     
 ]
